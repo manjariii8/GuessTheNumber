@@ -1,0 +1,39 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class CodsoftTask_1 {
+    public static void main(String[] args) {
+        Random random = new Random();
+        int compChoice = random.nextInt(100);
+        Scanner sc = new Scanner(System.in);
+        String choice;
+        int roundNum = 0;
+        int numberOfAttempts = 0;
+        boolean b = false;
+        do {
+            roundNum++;
+            while (!b) {
+                System.out.println("Enter your number less than 100: ");
+                numberOfAttempts++;
+                int playerInput = sc.nextInt();
+                if (compChoice == playerInput) {
+                    System.out.println("Guess number is correct.");
+                    break;
+                } else if (compChoice < playerInput) {
+                    System.out.println("Too high.");
+                } else if (compChoice > playerInput) {
+                    System.out.println("Too low.");
+                }
+            }
+            System.out.println("\n*********************Displaying Scorecrad of Player**************************");
+            System.out.printf("Number of attempts to guess the number in %d round is: %d", roundNum, numberOfAttempts);
+            System.out.println("\nDo you want to play again? (yes/no): ");
+            choice = sc.nextLine().toLowerCase();
+            sc.nextLine();
+
+        } while (choice.equals("yes"));
+        System.out.println("Task 1 completed successfully!");
+
+    }
+
+}
